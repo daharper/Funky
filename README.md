@@ -208,7 +208,7 @@ if res.IsErr then
   ShowMessage(res.Error); // Invalid input
 ```
 
-## The  Okay(ish)
+## The Okay
 
 The DI Container. This was my first in Delphi and it was quite the effort. The second will be designed better.
 
@@ -321,7 +321,7 @@ There are four core files:
 - SharedKernel.Specifications.pas
 - SharedKernel.Streams.pas
 
-The rest of the code is in a dozen tests and a couple of simple mock objects.    
+The rest of the code is in half a dozen tests and a couple of simple mock objects.    
 
 I defined **TESTINSIGHT** in the **.dpr**:
 
@@ -333,7 +333,7 @@ There's an overview of **TestInsight** [here](https://delphisorcery.blogspot.com
 
 ![image-20250613202917759](https://github.com/user-attachments/assets/8d0236e3-e62d-4bde-9870-914ce655cff3)
 
-## What Next
+## Whats Next
 
 This was an interesting project, I learned a lot. Some things turned out better than expected, such as the **Stream** type. That's one type I'll be improving and using in projects moving forwards.
 
