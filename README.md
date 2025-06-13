@@ -171,11 +171,6 @@ And the implementation:
   begin
     Result := Candidate.Salary > fThreshold;
   end;
-
-  constructor TSaleSectionIs.Create(const Section: string);
-  begin
-    fSection := Section;
-  end;
 ```
 
 Usage:
