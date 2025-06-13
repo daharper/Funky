@@ -264,9 +264,7 @@ constructor TConsole.Create(
 
 ## The Bad
 
-Delphi just isn't designed as a first class functional language, the fact that you can actually implement fully functional monads is a testament to its power and flexibility. It really shines when used as intended. Fully functional constructs become such an exercise in beat-the-compiler, and verbosity, that they offer very little benefit.
-
-This is an example of using the **Zip** function:
+Delphi just isn't designed as a first class functional language, the fact that you can actually implement fully functional monads is a testament to its power and flexibility. It really shines when used as intended. Fully functional constructs become such an exercise in beat-the-compiler, and verbosity, that they offer very little benefit. This is an example of using the **Zip** function:
 
 ```pascal
   lDairySales := GetSalesFor('Dairy');
