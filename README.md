@@ -444,7 +444,7 @@ There's an overview of **TestInsight** [here](https://delphisorcery.blogspot.com
 
 This was an interesting project, I learned a lot. Some things turned out better than expected, such as the **Stream** type. That's one type I'll be improving and using in projects moving forwards.
 
-This was a good exercise to seek a deeper understanding of the RTTI and Generics. I remember struggling trying to use generics to solve a problem, and nothing would work. Even **array of const** and **Variants** were of no use - one can't accept enum and interface arguments, the other loses interface type information. Success came when I stopped trying to fight the compiler, and to think differently.
+This was a good exercise to seek a deeper understanding of the RTTI and Generics. I remember struggling trying to use generics to solve a problem, and nothing would work. Even **array of const** and **Variants** were of no use - one can't accept enum and interface arguments, the other loses interface type information. Success came when I stopped trying to fight the compiler.
 
 Such a beautiful expression was waiting to be discovered:
 
