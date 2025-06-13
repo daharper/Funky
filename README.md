@@ -183,7 +183,7 @@ High-earning IT customers:
 Usage:
 
 ```pascal
-spec := TDepartmentIs.Create('IT').AndAlso(TSalaryAbove.Create(68000));
+var spec := TDepartmentIs.Create('IT').AndAlso(TSalaryAbove.Create(68000));
 
 for c in fCustomers do
   if spec.IsSatisfiedBy(c) then
