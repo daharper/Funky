@@ -194,7 +194,7 @@ A simple way to avoid try/finally/free blocks in your code.
 
 #### Examples
 
-This example from **Tests.Core** demonstrates four instances of the class TLanguage being cleaned up automatically. TLanguage is a regular class, it is not reference counted:
+This example from **Tests.Core** demonstrates two instances of the class TLanguage being cleaned up automatically. TLanguage is a regular class, it is not reference counted:
 
 ```pascal
 procedure TCoreTests.Scope_Test;
