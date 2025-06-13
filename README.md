@@ -171,7 +171,7 @@ High-earning IT customers:
 
   function TSalaryAbove.IsSatisfiedBy(const Candidate: TCustomer): Boolean;
   begin
-    Result := Candidate.Salary &gt; fThreshold;
+    Result := Candidate.Salary > fThreshold;
   end;
 
   constructor TSaleSectionIs.Create(const Section: string);
