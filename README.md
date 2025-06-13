@@ -21,64 +21,75 @@ Stream is a poor man's imitation of Java's powerhouse, but it is extremely usefu
 
 #### Initialization Methods
 
-| Method                           | Description                   |
-| -------------------------------- | ----------------------------- |
-| `From(array)`                    | Create stream from array      |
-| `From(TEnumerable<T>)`           | Create stream from enumerable |
-| `InitializeFrom(array)`          | Initializes with array (once) |
-| `InitializeFrom(TEnumerable<T>)` | Initializes with enumerable   |
-| `Range(start, end, step)`        | Generates a range of integers |
-| `Random(start, end, count)`      | Generates random integers     |
-| `Produce(value, count)`          | Repeats a value `count` times |
+| Method                           | Description                                                                   |
+| -------------------------------- | ----------------------------------------------------------------------------- |
+| `InitializeFrom(array)`          | Initializes the stream with array contents (once only)                        |
+| `InitializeFrom(TEnumerable<T>)` | Initializes the stream with an enumerable collection                          |
+| `From(array)`                    | Creates a new stream from an array                                            |
+| `From(TEnumerable<T>)`           | Creates a new stream from an enumerable                                       |
+| `Range(start, end, step)`        | Creates a stream of integers from `start` to `end` (exclusive) with step size |
+| `Random(start, end, count)`      | Creates a stream of random integers                                           |
+| `Produce(value, count)`          | Repeats a value `count` times into the stream                                 |
+
 
 #### Terminating Operations
 
-| Method                     | Description                          |
-| -------------------------- | ------------------------------------ |
-| `Count()`                  | Returns number of elements           |
-| `AnyMatch(predicate)`      | Returns true if any element matches  |
-| `AllMatch(predicate)`      | Returns true if all match            |
-| `ToList()`                 | Materializes the stream into a list  |
-| `ToArray()`                | Materializes into an array           |
-| `Reduce(value, reducer)`   | Reduces elements into a single value |
-| `Min(comparer?)`           | Minimum element                      |
-| `Max(comparer?)`           | Maximum element                      |
-| `ToMap()` (overloads)      | Converts stream to dictionary        |
-| `GroupBy()` (overloads)    | Groups elements by criteria          |
-| `First()`                  | First element or throws              |
-| `First(predicate)`         | First matching element or throws     |
-| `FirstOr(default)`         | First or default value               |
-| `FirstOrDefault()`         | First or default(T)                  |
-| `Last()`                   | Last element or throws               |
-| `Last(predicate)`          | Last matching element or throws      |
-| `LastOrDefault()`          | Last or default(T)                   |
-| `LastOrDefault(predicate)` | Last match or default(T)             |
+| Method                                    | Description                                                       |
+| ----------------------------------------- | ----------------------------------------------------------------- |
+| `Count()`                                 | Returns the number of elements                                    |
+| `AnyMatch(predicate)`                     | Returns `true` if any element matches the predicate               |
+| `AllMatch(predicate)`                     | Returns `true` if all elements match the predicate                |
+| `ToList()`                                | Materializes the stream into a new `TList<T>`                     |
+| `ToArray()`                               | Materializes the stream into a `TArray<T>`                        |
+| `Reduce(value, reducer)`                  | Reduces the stream into a single value using the reducer function |
+| `Min(comparer?)`                          | Finds the minimum element using optional comparer                 |
+| `Max(comparer?)`                          | Finds the maximum element using optional comparer                 |
+| `ToMap<K,V>(pairGenerator)`               | Transforms elements to `TPair<K,V>` and builds dictionary         |
+| `ToMap<U>()`                              | Maps each item as key, default value `default(U)`                 |
+| `ToMap<U>(valueGenerator)`                | Maps each item as key to value via generator                      |
+| `ToMap<U>(keyGenerator, owns)`            | Maps with object dictionary using key generator                   |
+| `ToMap(stringKeyGen, ignoreCase?, owns?)` | Maps to `TObjectDictionary<string,T>`                             |
+| `GroupBy(comparer?)`                      | Groups items by identity using optional comparer                  |
+| `GroupBy<U>(keyGenerator)`                | Groups by transformed keys                                        |
+| `GroupBy(stringKeyGen, ignoreCase?)`      | Groups by string key                                              |
+| `First()`                                 | Returns first item or raises if empty                             |
+| `First(predicate)`                        | Returns first matching item or raises if none                     |
+| `FirstOr(default)`                        | Returns first item or fallback default                            |
+| `FirstOrDefault()`                        | Returns first item or `default(T)`                                |
+| `FirstOrDefault(predicate)`               | Returns first match or `default(T)`                               |
+| `Last()`                                  | Returns last item or raises if empty                              |
+| `Last(predicate)`                         | Returns last match or raises                                      |
+| `LastOrDefault()`                         | Returns last or `default(T)`                                      |
+| `LastOrDefault(predicate)`                | Returns last matching item or `default(T)`                        |
+| `ForEach(action)`                         | Performs an action for each element                               |
+| `Apply(procvar)`                          | Runs a `var`-style procedure on each item                         |
+
 
 #### Transforming Operations
 
-| Method                     | Description                              |
-| -------------------------- | ---------------------------------------- |
-| `Map(mapper)`              | Projects each item to a new value        |
-| `Filter(predicate)`        | Filters by predicate                     |
-| `Sort(comparer?)`          | Sorts items                              |
-| `Distinct()` (overloads)   | Removes duplicates                       |
-| `Union()` (overloads)      | Combines distinct items from two streams |
-| `Difference()` (overloads) | Set difference                           |
-| `Intersect()` (overloads)  | Intersection with another stream         |
-| `Remove()` (overloads)     | Removes elements matching second stream  |
-| `Reverse()`                | Reverses order                           |
-| `Limit(count)`             | Takes the first `count` items            |
-| `Skip(count)`              | Skips first `count` items                |
-| `SkipWhile(predicate)`     | Skips while predicate true               |
-| `TakeWhile(predicate)`     | Takes while predicate true               |
-| `Peek(consumer)`           | Executes side-effect on each item        |
-
-#### Side Effects
-
-| Method           | Description                         |
-| ---------------- | ----------------------------------- |
-| `ForEach(proc)`  | Runs action for each item           |
-| `Apply(procvar)` | Runs `var`-style proc for each item |
+| Method                          | Description                                                        |
+| ------------------------------- | ------------------------------------------------------------------ |
+| `Filter(predicate)`             | Filters the stream with the predicate                              |
+| `Limit(count)`                  | Returns only the first `count` elements                            |
+| `Map<U>(mapper)`                | Transforms each element using `mapper`                             |
+| `Peek(consumer)`                | Executes side effect for each item, passes through original stream |
+| `Reverse()`                     | Reverses the order of elements                                     |
+| `Skip(count)`                   | Skips first `count` elements                                       |
+| `SkipWhile(predicate)`          | Skips elements while predicate is true                             |
+| `TakeWhile(predicate)`          | Takes elements while predicate is true                             |
+| `Sort(comparer?)`               | Sorts the stream using comparer or default                         |
+| `Distinct(comparer?)`           | Removes duplicates using optional comparer                         |
+| `Distinct<U>(keyGen)`           | Removes duplicates by derived key                                  |
+| `Union(stream, comparer?)`      | Combines unique elements from both streams                         |
+| `Union<U>(stream, keyGen)`      | Combines unique elements by derived key                            |
+| `Difference(stream, comparer?)` | Returns items in first stream not in second                        |
+| `Difference<U>(stream, keyGen)` | Difference based on derived key                                    |
+| `Intersect(stream, comparer?)`  | Returns intersection of two streams                                |
+| `Intersect<U>(stream, keyGen)`  | Intersection by derived key                                        |
+| `Concat(array)`                 | Appends items to current stream                                    |
+| `Concat(stream)`                | Appends another stream’s elements                                  |
+| `Remove(stream, comparer?)`     | Removes matching items from stream                                 |
+| `Remove<U>(stream, keyGen)`     | Removes items based on key identity                                |
 
 As a managed record, its resources are automatically cleaned up.
 
