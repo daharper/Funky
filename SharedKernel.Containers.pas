@@ -287,30 +287,9 @@ begin
       Expect.IsFalse(fProviders.ContainsKey(lGuid), Format(REG_ERROR, [lName]));
 
       if lAttr.IsByForce then
-      begin
-        {----------------------------------------------------------------------------------------------------}
-        { this block allows you to resolve against the interface map, rather than an inherited one. Delphi   }
-        { has a lot of quirks, keeping this for an edge case. If you need to use, remember to add a dummy    }
-        { private variable for the interface you want, or the linker may drop it:                            }
-        {                                                                                                    }
-        { [TRegister(IMoveCommandHandler, rtFromMap)]                    <-- resolve for IMoveCommandHandler }
-        { TMoveCommandHandler = class(TTransient, ICommandIntentHandler) <-- but a base interface            }
-        { private                                                                                            }
-        {   fDummy: IMoveCommandHandler;                                 <-- prevent linker dropping ifce    }
-        {                                                                                                    }
-        { this allows us to resolve for IMoveCommandHandler but cast to the base ICommandIntentHandler       }
-        { interface. Allowing us to add resolved interfaces to a list of ICommandIntentHandlers.             }
-        { it's a pretty ugly hack, so as a rule ignore it. But it works if you are stuck.                    }
-        {                                                                                                    }
-        { this block trusts the developer knows what he is doing.                                            }
-        {----------------------------------------------------------------------------------------------------}
-        Expect.IsTrue(fInterfaceMap.ContainsKey(lGuid), Format(MISSING_IFCE_ERROR, [lName]));
-      end
+        Expect.IsTrue(fInterfaceMap.ContainsKey(lGuid), Format(MISSING_IFCE_ERROR, [lName]))
       else
       begin
-        {----------------------------------------------------------------------------------------------------}
-        { this block is the ordinary path, and it will ensure the type implements the specified interface.   }
-        {----------------------------------------------------------------------------------------------------}
         lIsProvider := Stream<TRttiInterfaceType>
           .From(lInstance.GetImplementedInterfaces)
           .AnyMatch(function(i: TRttiInterfaceType): boolean begin Result := i.GUID = lAttr.InterfaceGUID; end);
