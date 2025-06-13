@@ -134,21 +134,56 @@ The Specification Pattern encapsulates business rules into reusable, composable 
 High-earning IT customers:
 
 ```pascal
-type
+  //interface
+
   TDepartmentIs = class(TSpecification<TCustomer>)
-    function IsSatisfiedBy(const C: TCustomer): Boolean; override;
+  private
+    fDept: string;
+  public
+    constructor Create(const Dept: string);
+    function IsSatisfiedBy(const Candidate: TCustomer): Boolean; override;
   end;
 
   TSalaryAbove = class(TSpecification<TCustomer>)
-    function IsSatisfiedBy(const C: TCustomer): Boolean; override;
+  private
+    fThreshold: Integer;
+  public
+    constructor Create(Threshold: Integer);
+    function IsSatisfiedBy(const Candidate: TCustomer): Boolean; override;
+  end;  
+
+  // implementation 
+
+  constructor TDepartmentIs.Create(const Dept: string);
+  begin
+    fDept := Dept;
+  end;
+
+  function TDepartmentIs.IsSatisfiedBy(const Candidate: TCustomer): Boolean;
+  begin
+    Result := Candidate.Department = fDept;
+  end;
+ 
+  constructor TSalaryAbove.Create(Threshold: Integer);
+  begin
+    fThreshold := Threshold;
+  end;
+
+  function TSalaryAbove.IsSatisfiedBy(const Candidate: TCustomer): Boolean;
+  begin
+    Result := Candidate.Salary &gt; fThreshold;
+  end;
+
+  constructor TSaleSectionIs.Create(const Section: string);
+  begin
+    fSection := Section;
   end;
 ```
 
 Usage:
 
 ```pascal
-var spec := TDepartmentIs.Create('IT')
-              .AndAlso(TSalaryAbove.Create(70000));
+spec := TDepartmentIs.Create('IT').AndAlso(TSalaryAbove.Create(68000));
 
 for c in fCustomers do
   if spec.IsSatisfiedBy(c) then
