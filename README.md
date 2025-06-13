@@ -131,11 +131,9 @@ The Specification Pattern encapsulates business rules into reusable, composable 
 
 #### Examples
 
-High-earning IT customers:
+The interface section:
 
 ```pascal
-  //interface
-
   TDepartmentIs = class(TSpecification<TCustomer>)
   private
     fDept: string;
@@ -151,9 +149,9 @@ High-earning IT customers:
     constructor Create(Threshold: Integer);
     function IsSatisfiedBy(const Candidate: TCustomer): Boolean; override;
   end;  
-
-  // implementation 
-
+```
+And the implementation:
+```pascal
   constructor TDepartmentIs.Create(const Dept: string);
   begin
     fDept := Dept;
