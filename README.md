@@ -19,6 +19,69 @@ Stream is a poor man's imitation of Java's powerhouse, but it is extremely usefu
 - Grouping and dictionary mapping
 - Supports both value and reference types
 
+#### Initialization Methods
+
+| Method                           | Description                   |
+| -------------------------------- | ----------------------------- |
+| `From(array)`                    | Create stream from array      |
+| `From(TEnumerable<T>)`           | Create stream from enumerable |
+| `InitializeFrom(array)`          | Initializes with array (once) |
+| `InitializeFrom(TEnumerable<T>)` | Initializes with enumerable   |
+| `Range(start, end, step)`        | Generates a range of integers |
+| `Random(start, end, count)`      | Generates random integers     |
+| `Produce(value, count)`          | Repeats a value `count` times |
+
+#### Terminating Operations
+
+| Method                     | Description                          |
+| -------------------------- | ------------------------------------ |
+| `Count()`                  | Returns number of elements           |
+| `AnyMatch(predicate)`      | Returns true if any element matches  |
+| `AllMatch(predicate)`      | Returns true if all match            |
+| `ToList()`                 | Materializes the stream into a list  |
+| `ToArray()`                | Materializes into an array           |
+| `Reduce(value, reducer)`   | Reduces elements into a single value |
+| `Min(comparer?)`           | Minimum element                      |
+| `Max(comparer?)`           | Maximum element                      |
+| `ToMap()` (overloads)      | Converts stream to dictionary        |
+| `GroupBy()` (overloads)    | Groups elements by criteria          |
+| `First()`                  | First element or throws              |
+| `First(predicate)`         | First matching element or throws     |
+| `FirstOr(default)`         | First or default value               |
+| `FirstOrDefault()`         | First or default(T)                  |
+| `Last()`                   | Last element or throws               |
+| `Last(predicate)`          | Last matching element or throws      |
+| `LastOrDefault()`          | Last or default(T)                   |
+| `LastOrDefault(predicate)` | Last match or default(T)             |
+
+#### Transforming Operations
+
+| Method                     | Description                              |
+| -------------------------- | ---------------------------------------- |
+| `Map(mapper)`              | Projects each item to a new value        |
+| `Filter(predicate)`        | Filters by predicate                     |
+| `Sort(comparer?)`          | Sorts items                              |
+| `Distinct()` (overloads)   | Removes duplicates                       |
+| `Union()` (overloads)      | Combines distinct items from two streams |
+| `Difference()` (overloads) | Set difference                           |
+| `Intersect()` (overloads)  | Intersection with another stream         |
+| `Remove()` (overloads)     | Removes elements matching second stream  |
+| `Reverse()`                | Reverses order                           |
+| `Limit(count)`             | Takes the first `count` items            |
+| `Skip(count)`              | Skips first `count` items                |
+| `SkipWhile(predicate)`     | Skips while predicate true               |
+| `TakeWhile(predicate)`     | Takes while predicate true               |
+| `Peek(consumer)`           | Executes side-effect on each item        |
+
+#### Side Effects
+
+| Method           | Description                         |
+| ---------------- | ----------------------------------- |
+| `ForEach(proc)`  | Runs action for each item           |
+| `Apply(procvar)` | Runs `var`-style proc for each item |
+
+As a managed record, its resources are automatically cleaned up.
+
 #### Examples
 
 Create a Stream:
