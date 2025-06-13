@@ -333,7 +333,7 @@ I have defined **TESTINSIGHT** in the **.dpr**:
 
 There's an overview of **TestInsight** [here](https://delphisorcery.blogspot.com/2021/04/testinsight-12-released.html) from where you can download and install it - highly recommended, it is excellent. Once **TestInisight** is installed, you can run or debug the tests as per normal.
 
-![image-20250613202917759](C:\Users\david\AppData\Roaming\Typora\typora-user-images\image-20250613202917759.png)
+![image-20250613202917759](https://github.com/user-attachments/assets/8d0236e3-e62d-4bde-9870-914ce655cff3)
 
 ## What Next
 
