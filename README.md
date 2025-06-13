@@ -19,6 +19,10 @@ Stream is a poor man's imitation of Java's powerhouse, but it is extremely usefu
 - Grouping and dictionary mapping
 - Supports both value and reference types
 
+I love using a declarative approach, and looking forwards to refactoring and further improving this class.
+
+The following is a list of currently supported methods:
+
 #### Initialization Methods
 
 | Method                           | Description                                                                   |
