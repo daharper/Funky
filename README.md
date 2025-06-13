@@ -458,12 +458,12 @@ Player.Intent(TMoveIntentEvent)
 and:
 
 ```pascal
-Result := TStoneBuilder.New
-      .Weight(RandomRange(1, 5))
-      .Texture(lTexture)
-      .Sharpness(RandomRange(0, 2))
-      .InRoom(Room)
-      .Realize;
+TStoneBuilder.New
+    .Weight(RandomRange(1, 5))
+    .Texture(lTexture)
+    .Sharpness(RandomRange(0, 2))
+    .InRoom(Room)
+    .Realize;
 ```
 
 For a feature rich battle hardened framework, I highly recommend checking out [Spring4D](https://learndelphi.org/everything-you-need-to-know-about-spring4d-delphi-development-framework/). 
