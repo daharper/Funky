@@ -205,13 +205,9 @@ var
 begin
   var delphi  := scope.Add(TLanguage.Create('Delphi'));
   var csharp  := scope.Add(TLanguage.Create('CSharp'));
-  var flutter := scope.Add(TLanguage.Create('Flutter'));
-  var rust    := scope.Add(TLanguage.Create('Rust'));
 
   Assert.AreEqual('Delphi', delphi.Name);
   Assert.AreEqual('CSharp', csharp.Name);
-  Assert.AreEqual('Flutter', flutter.Name);
-  Assert.AreEqual('Rust', rust.Name);
 
   { memory leak reporting is on, shouldn't throw a leak error }
 end;
