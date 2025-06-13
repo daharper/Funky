@@ -395,7 +395,7 @@ Delphi just isn't designed as a first class functional language, the fact that y
 
 There's so much noise, it's unnecessarily complex.
 
-Many methods have been implemented, including the following and more:
+Many methods have been implemented, including the following:
 
 | Method                           | Description                      |
 | -------------------------------- | -------------------------------- |
@@ -413,9 +413,9 @@ Many methods have been implemented, including the following and more:
 | `.Match(onOk, onErr)`            | Pattern match style              |
 | `.Log(tag)`                      | Logs current state               |
 
-The **Tests.Result.Complex.pas** file contains a number of unit tests demonstrating a some of the functions.
+See **Tests.Result.Complex.pas** for more examples.
 
-The **TResult** tests were split into two, to highlight the distinction in complexity. **SharedKernel.Core.pas** will similarly have the more complex functions split out to a helper unit in the near future.
+The **Result** tests were split into two, highlighting the difference in complexity. **SharedKernel.Core.pas** will similarly have the more complex functions split out to a helper unit in the near future.
 
 ## The Project
 
