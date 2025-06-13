@@ -264,9 +264,9 @@ constructor TConsole.Create(
 
 ## The Bad
 
-Delphi just isn't designed as a first class functional language, the fact that you can actually implement fully functional monads is a testament to its power and flexibility. It really shines when used as intended. Fully functional constructs become such an exercise in beat the compiler, and verbosity, that they offer very little benefit.
+Delphi just isn't designed as a first class functional language, the fact that you can actually implement fully functional monads is a testament to its power and flexibility. It really shines when used as intended. Fully functional constructs become such an exercise in beat-the-compiler, and verbosity, that they offer very little benefit.
 
-This is an example of using **Zip** function:
+This is an example of using the **Zip** function:
 
 ```pascal
   lDairySales := GetSalesFor('Dairy');
@@ -288,7 +288,7 @@ This is an example of using **Zip** function:
 
 ```
 
-There's so much syntax noise, for such a simple function, it's unnecessarily complex.
+There's so much noise, it's unnecessarily complex.
 
 Many methods have been implemented, including the following and more:
 
@@ -308,9 +308,9 @@ Many methods have been implemented, including the following and more:
 | `.Match(onOk, onErr)`            | Pattern match style              |
 | `.Log(tag)`                      | Logs current state               |
 
-The **Tests.Result.Complex.pas** file contains a number of unit tests demonstrating a number of the functions.
+The **Tests.Result.Complex.pas** file contains a number of unit tests demonstrating a some of the functions.
 
-The **TResult** tests were split into two, to highlight the distinction in complexity. **SharedKernel.Core.pas** will similarly have the more complex functions split out to a helper unit.
+The **TResult** tests were split into two, to highlight the distinction in complexity. **SharedKernel.Core.pas** will similarly have the more complex functions split out to a helper unit in the near future.
 
 ## The Project
 
@@ -325,7 +325,7 @@ There are four core files:
 
 The rest of the code is in a dozen tests and a couple of simple mock objects.    
 
-I have defined **TESTINSIGHT** in the **.dpr**:
+I defined **TESTINSIGHT** in the **.dpr**:
 
 ```pascal
 {$DEFINE TESTINSIGHT}
@@ -337,9 +337,9 @@ There's an overview of **TestInsight** [here](https://delphisorcery.blogspot.com
 
 ## What Next
 
-This was an interesting project, I learned a lot. Some things turned out better than expected, such as the **Stream** type. That's one type I'll be improving and adopting in projects moving forwards.
+This was an interesting project, I learned a lot. Some things turned out better than expected, such as the **Stream** type. That's one type I'll be improving and using in projects moving forwards.
 
-Attempting to build such abstractions in Delphi is a good exercise for Developers seeking a deeper understanding of the RTTI and Generics. I remember struggling trying to use generics to solve a problem, and nothing would work. Event **array of const** and **Variants** were of no use - onr can't accept enum and interface arguments, the second loses interface type information. Success came when I stopped trying to fight the compiler, and to think differently.
+This was a good exercise to seek a deeper understanding of the RTTI and Generics. I remember struggling trying to use generics to solve a problem, and nothing would work. Even **array of const** and **Variants** were of no use - one can't accept enum and interface arguments, the other loses interface type information. Success came when I stopped trying to fight the compiler, and to think differently.
 
 Such a beautiful expression was waiting to be discovered:
 
