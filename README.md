@@ -1,7 +1,7 @@
 # Funky
 Recently I began a new Delphi project using Clean Architecture. Whilst scaffolding to support this architecture, I experimented with implementing some functional programming concepts.
 
-It was possible to accomplish most things, but Delphi’s power lies in **clarity**, **predictability**, and **getting out of your way** — not in imitating languages with deeply expressive type systems like Haskell, F#, or Scala.
+I was possible to accomplish much, but Delphi’s power lies in **clarity**, **predictability**, and **getting out of your way** — not in imitating languages with deeply expressive type systems like Haskell, F#, or Scala.
 
 ## The  Good
 
