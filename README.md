@@ -11,17 +11,31 @@ Some things worked out very well.
 
 Stream is a poor man's imitation of Java's powerhouse, but it is extremely useful.
 
-A current project makes good use of it, for example, initializing a dictionary:
+For example, initializing a dictionary:
 
 ```pascal
-fSynonyms := Stream<string>
-.From([
-    'walk→go', 'exit→leave', 'inspect→examine', 'speak→talk', 'strike→attack',
-    'grab→take', 'get→take', 'study→examine', 'read→examine', 'ask→talk', 'question→talk',
-    'shout→tell', 'punch→hit', 'kick→hit', 'slap→hit', 'headbutt→hit', 'fight→attack',
-    'say→talk'
- ])
-.ToMap<string, string>(function(s: string): TPair<string, string> begin Result := ToPair(s,'→'); end);
+fNormalizers := Stream<string>
+  .From([
+          'ask about→talk', 'chat with→talk', 'check inventory→inventory',
+          'check equipment→inventory', 'check out→examine', 'climb down→climb', 
+          'climb up→climb', 'drop down→drop', 'enter into→enter', 
+          'get hold of→take', 'get off→exit', 'get on→enter', 'get out→leave', 
+          'give to→give', 'glance at→examine','go away→leave', 'go down→climb', 
+          'go to→go', 'go up→climb', 'hand to→give', 'help me→help', 
+          'leave from→leave', 'look at→examine', 'look about→look', 
+          'look around→look', 'look help→help', 'move to→go', 
+          'north east→northeast', 'north west→northwest', 'offer to→give', 
+          'peer at→examine','pick up→take', 'place into→insert', 
+          'power off→deactivate', 'power on→activate', 'pull out→remove', 
+          'put down→drop','put in→insert', 'put into→insert', 'quit game→quit', 
+          'run away→flee', 'scream at→yell', 'shout at→yell', 
+          'south east→southeast', 'south west→southwest', 'speak to→talk', 
+          'step in→enter', 'step into→enter','step out of→exit', 'swing at→attack',
+          'switch off→deactivate', 'switch on→activate', 'talk to→talk', 
+          'take out→remove', 'throw away→drop', 'turn off→deactivate', 
+          'turn on→activate', 'use weapon on→attack', 'yell at→yell'
+        ])
+  .ToMap<string, string>(function(s: string): TPair<string, string> begin Result := ToPair(s,'→'); end);
 ```
 
 #### Key Features
