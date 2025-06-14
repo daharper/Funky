@@ -439,9 +439,9 @@ There's an overview of **TestInsight** [here](https://delphisorcery.blogspot.com
 
 ## Whats Next
 
-This was an interesting project. Some things turned out better than expected, such as the **Stream** type. That's one type worth improving.
+This was an interesting project. Some things turned out well, such as **Stream** - which is worth improving.
 
-Sometimes you have to give up fighting the compiler, and try work wit it. Dropping generics often a few cases led to an elegant solution.
+Learning to work with the compiler, rather than fighting it, led to the most elegant code.
 
 Such a beautiful expression waiting to be discovered:
 
