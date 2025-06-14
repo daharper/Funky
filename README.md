@@ -329,7 +329,11 @@ TClassificationProfile = class(TTransient, IClassificationProfile)
 end;
 ```
 
-These types are used because to simplify memory management: ask for a type, use it, forget about it. Accidentally freeing a Singleton managed by the container would be a disaster. The contract is: *all types must be registered against an interface*. Something that may be reconsidered in the future.
+These types are used because to simplify memory management: ask for a type, use it, forget about it. Accidentally freeing a Singleton managed by the container would be a disaster. The contract is: 
+
+*all types must be registered against an interface*. 
+
+Something that may be reconsidered in the future.
 
 To improve performance, singleton and transient types are identified and cached on initialization.
 
