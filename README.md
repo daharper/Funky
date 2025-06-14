@@ -1,4 +1,4 @@
-# Funky
+# Funky Delphi
 An experiment in declarative and functional programming concepts using Delphi.
 
 Delphi’s strength lies in **clarity** and **predictability** rather than expressive type systems.
@@ -443,7 +443,7 @@ This was an interesting project. Some things turned out well, such as **Stream**
 
 Learning to work with the compiler, rather than fighting it, led to the most elegant code.
 
-Such a beautiful expression waiting to be discovered:
+Such as this beautiful expression:
 
 ```pascal
 Player.Intent(TMoveIntentEvent)
@@ -452,7 +452,7 @@ Player.Intent(TMoveIntentEvent)
     .Declare;
 ```
 
-and:
+and this:
 
 ```pascal
 TStoneBuilder.New
@@ -462,6 +462,7 @@ TStoneBuilder.New
     .InRoom(Room)
     .Realize;
 ```
+It will be interesting to see how this shapes up after a refactor based upon practical usage.
 
 For a feature rich battle hardened framework, I highly recommend checking out [Spring4D](https://learndelphi.org/everything-you-need-to-know-about-spring4d-delphi-development-framework/). 
 
