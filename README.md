@@ -1,7 +1,7 @@
 # Funky
-Which scaffolding a new Delphi project, I took the opportunity to experiment with declarative and functional programming concepts.
+An experiment in declarative and functional programming concepts using Delphi.
 
-It was tough, but some success was had. Delphi’s strength lies in **clarity** and **predictability** rather than expressive type systems.
+Delphi’s strength lies in **clarity** and **predictability** rather than expressive type systems.
 
 ## The  Good
 
