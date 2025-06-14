@@ -320,19 +320,19 @@ The simple use cases of this fully functional result monad worked well.
 Success case:
 
 ```pascal
-var res := TResult<string>.Ok('Success');
+var res := TResult<TCustomer>.Ok(aCustomer);
 
 if res.IsOk then
-  ShowMessage(res.Value); // Success
+  ShowMessage(res.Value.Name); // Customer's Name
 ```
 
 Error case:
 
 ```pascal
-var res := TResult<Integer>.Err('Invalid input');
+var res := TResult<TCustomer>.Err('Customer not found');
 
 if res.IsErr then
-  ShowMessage(res.Error); // Invalid input
+  ShowMessage(res.Error); // Customer not found
 ```
 
 ## The Bad
