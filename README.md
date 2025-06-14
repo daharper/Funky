@@ -11,28 +11,17 @@ Some things worked out very well.
 
 Stream is a poor man's imitation of Java's powerhouse, but it is extremely useful.
 
-A current project makes good use of it, here to initialize a list:
+A current project makes good use of it, for example, initializing a dictionary:
 
 ```pascal
-procedure TClassificationProfile.CreateSeparators;
-begin
-  fSeparators := Stream<string>.From([' and ', ' then ', ',', ';', ' also ']).ToList;
-end;
-```
-And here to initialize a dictionary:
-
-```pascal
-procedure TClassificationProfile.CreateSynonyms;
-begin
-  fSynonyms := Stream<string>
-    .From([
-            'walk→go', 'exit→leave', 'inspect→examine', 'speak→talk', 'strike→attack',
-            'grab→take', 'get→take', 'study→examine', 'read→examine', 'ask→talk', 'question→talk',
-            'shout→tell', 'punch→hit', 'kick→hit', 'slap→hit', 'headbutt→hit', 'fight→attack',
-            'say→talk'
-         ])
-    .ToMap<string, string>(function(s: string): TPair<string, string> begin Result := ToPair(s,'→'); end);
-end;
+fSynonyms := Stream<string>
+.From([
+    'walk→go', 'exit→leave', 'inspect→examine', 'speak→talk', 'strike→attack',
+    'grab→take', 'get→take', 'study→examine', 'read→examine', 'ask→talk', 'question→talk',
+    'shout→tell', 'punch→hit', 'kick→hit', 'slap→hit', 'headbutt→hit', 'fight→attack',
+    'say→talk'
+ ])
+.ToMap<string, string>(function(s: string): TPair<string, string> begin Result := ToPair(s,'→'); end);
 ```
 
 #### Key Features
