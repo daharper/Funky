@@ -395,7 +395,7 @@ constructor TConsole.Create(
 
 ## The Bad
 
-Delphi just isn't designed as a first class functional language, it really shines when used as intended. Fully functional constructs become an exercise in beat-the-compiler, and verbosity. This is an example of using the **Zip** function:
+Delphi isn't designed as a first class functional language, it really shines when used as intended. Fully functional constructs become an exercise in beat-the-compiler, and verbosity. This is an example of using the **Zip** function:
 
 ```pascal
   lDairySales := GetSalesFor('Dairy');
