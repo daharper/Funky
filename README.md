@@ -35,7 +35,7 @@ fNormalizers := Stream<string>
           'take out→remove', 'throw away→drop', 'turn off→deactivate', 
           'turn on→activate', 'use weapon on→attack', 'yell at→yell'
         ])
-  .ToMap<string, string>(function(s: string): TPair<string, string> begin Result := ToPair(s,'→'); end);
+  .ToMap(function(s: string): TPair<string, string> begin Result := ToPair(s,'→'); end);
 ```
 
 #### Key Features
