@@ -310,7 +310,7 @@ if res.IsErr then
 
 ## The Okay
 
-The DI Container. This was quite the struggle. The second will be designed better.
+The DI Container. This was quite the struggle.
 
 It is rather spartan, but performs well enough. 
 
