@@ -1,7 +1,7 @@
 # Funky
-Recently I began a new Delphi project using Clean Architecture. Whilst scaffolding to support this architecture, I experimented with implementing some functional programming concepts.
+Which scaffolding a new Delphi project, I took the opportunity to experiment with declarative and functional programming concepts.
 
-It was possible to accomplish much, but Delphi’s power lies in **clarity** and **predictability** — not in imitating languages with deeply expressive type systems like Haskell, F#, or Scala.
+It was tough, but some success was had. Delphi’s strength lies in **clarity** and **predictability** rather than expressive type systems.
 
 ## The  Good
 
@@ -9,7 +9,7 @@ Some things worked out very well.
 
 ### Stream
 
-Stream is a poor man's imitation of Java's powerhouse, but it is extremely useful, allowing you to filter, map, reduce, group, and combine data in a clean and expressive way, using generics and lambdas.
+Stream is a poor man's imitation of Java's powerhouse, but it is extremely useful.
 
 #### Key Features
 
@@ -18,8 +18,6 @@ Stream is a poor man's imitation of Java's powerhouse, but it is extremely usefu
 - Set operations: `union`, `intersect`, `difference`, `remove`
 - Grouping and dictionary mapping
 - Supports both value and reference types
-
-I love using a declarative approach, and look forwards to refactoring and further improving this class.
 
 The following is a list of currently supported methods:
 
@@ -189,7 +187,7 @@ A simple way to avoid try/finally/free blocks in your code.
 
 #### Examples
 
-This example from **Tests.Core** demonstrates two instances of the class TLanguage being cleaned up automatically. TLanguage is a regular class, it is not reference counted:
+This example from **Tests.Core** demonstrates two instances of the class TLanguage being cleaned up automatically:
 
 ```pascal
 procedure TCoreTests.Scope_Test;
@@ -273,7 +271,7 @@ ShowMessage(maybe.OrElseGet(function: string begin Result := 'Lazy'; end));
 
 ### TResult
 
-The simple use cases of this fully functional result monad worked well, and fit well in Delphi.
+The simple use cases of this fully functional result monad worked well.
 
 #### Key Features
 
@@ -312,9 +310,9 @@ if res.IsErr then
 
 ## The Okay
 
-The DI Container. This was my first in Delphi and it was quite the effort. The second will be designed better.
+The DI Container. This was quite the struggle. The second will be designed better.
 
-Although it is rather spartan, and limited, it is performing well enough. 
+It is rather spartan, but performs well enough. 
 
 It distinguishes between two types:
 
@@ -331,7 +329,7 @@ TClassificationProfile = class(TTransient, IClassificationProfile)
 end;
 ```
 
-I used these types because I didn't want the user to worry about memory management, just ask for a type, use it, forget about it. I especially didn't want the user to accidentally free a Singleton managed by the container. This decision established the contract: *all types must be registered against an interface*. This is something I'll reconsider in the future.
+These types are used because to simplify memory management: ask for a type, use it, forget about it. Accidentally freeing a Singleton managed by the container would be a disaster. The contract is: *all types must be registered against an interface*. Something that may be reconsidered in the future.
 
 To improve performance, singleton and transient types are identified and cached on initialization.
 
@@ -366,7 +364,7 @@ constructor TConsole.Create(
 
 ## The Bad
 
-Delphi just isn't designed as a first class functional language, the fact that you can actually implement fully functional monads is a testament to its power and flexibility. It really shines when used as intended. Fully functional constructs become such an exercise in beat-the-compiler, and verbosity, that they offer very little benefit. This is an example of using the **Zip** function:
+Delphi just isn't designed as a first class functional language, it really shines when used as intended. Fully functional constructs become an exercise in beat-the-compiler, and verbosity. This is an example of using the **Zip** function:
 
 ```pascal
   lDairySales := GetSalesFor('Dairy');
@@ -388,7 +386,7 @@ Delphi just isn't designed as a first class functional language, the fact that y
 
 ```
 
-There's so much noise, it's unnecessarily complex.
+There's too much noise, it's unnecessarily complex.
 
 Many methods have been implemented, including the following:
 
@@ -437,11 +435,11 @@ There's an overview of **TestInsight** [here](https://delphisorcery.blogspot.com
 
 ## Whats Next
 
-This was an interesting project, I learned a lot. Some things turned out better than expected, such as the **Stream** type. That's one type I'll be improving and using in projects moving forwards.
+This was an interesting project. Some things turned out better than expected, such as the **Stream** type. That's one type worth improving.
 
-This was a good exercise to seek a deeper understanding of the RTTI and Generics. I remember struggling trying to use generics to solve a problem, and nothing would work. Even **array of const** and **Variants** were of no use - one can't accept enum and interface arguments, the other loses interface type information. Success came when I stopped trying to fight the compiler.
+Sometimes you have to give up fighting the compiler, and try work wit it. Dropping generics often a few cases led to an elegant solution.
 
-Such a beautiful expression was waiting to be discovered:
+Such a beautiful expression waiting to be discovered:
 
 ```pascal
 Player.Intent(TMoveIntentEvent)
