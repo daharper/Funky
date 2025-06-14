@@ -335,7 +335,7 @@ if res.IsErr then
   ShowMessage(res.Error); // Invalid input
 ```
 
-## The Okay
+## The Bad
 
 The DI Container. This was quite the struggle.
 
@@ -393,7 +393,7 @@ constructor TConsole.Create(
 	aWorldEngine: IWorldEngine);
 ```
 
-## The Bad
+## The Ugly
 
 Delphi isn't designed as a first class functional language, it really shines when used as intended. Fully functional constructs become an exercise in beat-the-compiler, and verbosity. This is an example of using the **Zip** function:
 
