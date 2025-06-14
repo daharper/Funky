@@ -1,5 +1,5 @@
 # Funky Delphi
-An experiment in declarative and functional programming concepts using Delphi.
+An initial experiment in declarative and functional programming concepts using Delphi.
 
 Delphi’s strength lies in **clarity** and **predictability** rather than expressive type systems.
 
