@@ -11,7 +11,7 @@ Some things worked out very well.
 
 Stream is a poor man's imitation of Java's powerhouse, but it is extremely useful.
 
-A current problem makes good use of it, here to initialize a list:
+A current project makes good use of it, here to initialize a list:
 
 ```pascal
 procedure TClassificationProfile.CreateSeparators;
